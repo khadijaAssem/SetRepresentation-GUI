@@ -3,13 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="Grid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -17,12 +19,48 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane fx:id="screen" prefHeight="466.0" prefWidth="528.0">
+      <Pane fx:id="screen" prefHeight="475.0" prefWidth="717.0">
          <children>
+            <ImageView fitHeight="475.0" fitWidth="717.0" layoutY="-1.0" opacity="0.98" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Background.jpg" />
+               </image>
+            </ImageView>
             <TextField fx:id="universe" layoutX="190.0" layoutY="101.0" />
-            <Label layoutX="93.0" layoutY="105.0" prefHeight="17.0" prefWidth="89.0" text="Universal set" />
-            <Button fx:id="addSet" layoutX="339.0" layoutY="149.0" mnemonicParsing="false" onAction="#newSet" text="+" />
-            <VBox fx:id="pane_main_grid" layoutX="11.0" layoutY="196.0" prefHeight="235.0" prefWidth="507.0" />
+            <Label layoutX="93.0" layoutY="105.0" prefHeight="17.0" prefWidth="89.0" text="Universal Set" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Button fx:id="addSet" layoutX="375.0" layoutY="153.0" mnemonicParsing="false" onAction="#findSets" text="+" />
+            <TextField fx:id="addSubset" layoutX="190.0" layoutY="153.0" />
+            <Label layoutX="93.0" layoutY="157.0" prefHeight="17.0" prefWidth="89.0" text="Add Subset" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="subsets" layoutX="449.0" layoutY="81.0" prefHeight="140.0" prefWidth="117.0" text="Subsets :" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="Error" layoutX="94.0" layoutY="187.0" textFill="#e90c26" />
+            <Label layoutX="18.0" layoutY="228.0" text="New oeration :" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="operation" layoutX="18.0" layoutY="291.0" />
+            <Button fx:id="solve" layoutX="202.0" layoutY="291.0" mnemonicParsing="false" onAction="#operation" text="Find" />
+            <Label fx:id="answer" layoutX="16.0" layoutY="341.0" prefHeight="17.0" prefWidth="538.0" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="16.0" layoutY="256.0" text="Enter operation you want to do Example : A U B for union or A I B for intersection or A C for complement" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="42.0" layoutY="36.0" text="Set Operations" textFill="#e01717">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
